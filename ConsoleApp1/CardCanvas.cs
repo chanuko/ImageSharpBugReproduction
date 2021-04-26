@@ -11,7 +11,7 @@ namespace ConsoleApp1
 	{
 		public void CreateAndDraw(string filePath)
 		{
-			var txt = "　,　";
+			var txt = "　,　"; // U+3000 IDEOGRAPHIC SPACE
 			var fontFamily = SystemFonts.Find("Yu Gothic");
 			var font = new Font(fontFamily, 16);
 
@@ -21,7 +21,7 @@ namespace ConsoleApp1
 				{
 					image.Mutate(x => x
 						.DrawText(txt, font, Color.Black, new PointF(0, 0))
-					);
+					); // ArgumentOutOfRangeException
 					image.SaveAsJpeg(filePath);
 				}
 				catch (Exception e)
